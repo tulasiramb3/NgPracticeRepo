@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row mt-1 p-2">
+        <div class="col-2">Using Date Pipes : </div>
+        <div class="col-4">{{dateVal | date}}, {{dateVal | date : 'shortDate'}},{{dateVal | date : 'short'}}</div>
+    </div>
+    <div class="row mt-1 p-2">
+        <div class="col-2">Using Case Pipes :</div>
+        <div class="col-4">{{displayName | uppercase}}, {{displayName | lowercase}}</div>
+    </div>  
+    <div class="row mt-1 p-2" *ngIf="users$ | async as users">
+        <div class="col-2">Using Async and Json Pipes :</div>
+        <div class="col-4">
+            <ul>
+                <li *ngFor="let user of users">{{user.username}} , {{user.company | json}}, {{user.address | addressformat}} </li>                
+            </ul>
+        </div>
+    </div>
+</div>

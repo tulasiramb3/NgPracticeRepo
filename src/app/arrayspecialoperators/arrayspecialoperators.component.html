@@ -1,0 +1,50 @@
+<div class="container">
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Item Number</th>
+                    <th>Item Name</th>
+                    <th>Item Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let item of todos">
+                    <td>{{item.id}}</td>
+                    <td>{{item.itemName}}</td>
+                    <td>{{item.description}}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="AddtoCart(item)">Add</button>
+                        <button class="btn btn-secondary" (click)="RemovefromCart(item.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="cartItems.length>0"> List of todo cart items will display here
+        <div>
+            <ul>
+                <li *ngFor="let item of cartItems">{{item.id}} | {{item.description}} | {{item.itemName}}</li>
+            </ul>
+
+
+            <div style="color:blue">Array operators samples</div>
+            <div>
+                <div class="row p-1" >
+                    <div class="col-2">Using Rest operator</div>
+                    <div class="col-2"><button class="btn btn-warning" (click)="RestFunc()">Rest click</button></div>
+                </div>
+                <div class="row p-1">
+                    <div class="col-2">Using Map Call back Func to append item desc with $</div>
+                    <div class="col-2"><button class="btn btn-warning" (click)="MapFunc(2)">Map click</button></div>                    
+                </div>
+                <div class="row p-1">
+                    <div class="col-2">Using Map Call back Func to append item desc with $</div>
+                    <div class="col-2"><button class="btn btn-warning" (click)="MapFunc(2)">Map click</button></div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

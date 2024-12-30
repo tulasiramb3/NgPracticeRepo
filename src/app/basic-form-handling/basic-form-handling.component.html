@@ -1,0 +1,60 @@
+<div class="container">
+
+    <form #frm="ngForm" (ngSubmit)="onFormSubmit()" novalidate>
+        <div class="form-group">
+            <div class="row p-2">
+                <div class="col-1">
+                    <label for="userName">User Name</label>
+                </div>
+                <div class="col-3">
+                    <input name="userName" id="userName" class="form-control" #userName="ngModel" [(ngModel)]="userModel.userName" required/>
+                </div>
+                <div *ngIf="userName.touched && userName.invalid">
+                    <span style="color:red">Name is required</span>
+                </div>
+
+            </div>
+            <div class="row p-2">
+                <div class="col-1">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-3">
+                    <input type="email" name="email" class="form-control" ngModel #email="ngModel" [(ngModel)]="userModel.email" required email>
+                </div>
+                <div *ngIf="email.touched && email.invalid">
+                    <span *ngIf="email.errors?.['required']" style="color:red">Email is required</span>
+                    <span *ngIf="email.errors?.['email']" style="color:red">Email format is invalid</span>
+                </div>               
+            </div>
+            <div class="row p-2">
+                <div class="col-1">
+                    <label for="phone">Phone</label>
+                </div>
+                <div class="col-3">
+                    <input name="phone" class="form-control" ngModel #phone="ngModel" [(ngModel)]="userModel.phone" required pattern="^[0-9]{10}">
+                </div>
+                <div *ngIf="phone.touched && phone.invalid">
+                    <span style="color:red">Phone is required</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <button class="btn btn-primary" [disabled]="!frm.valid">Submit</button>
+            </div>
+            <div class="col-2">
+                <button class="btn btn-secondary">Reset</button>
+            </div>
+        </div>
+
+    </form>
+
+    <div *ngIf="isDisplay">
+        <div>User Details are:</div>
+        <div>{{userModel.userName}}</div>
+        <div>{{userModel.email}}</div>
+        <div>{{userModel.phone}}</div>
+    </div>
+
+</div>

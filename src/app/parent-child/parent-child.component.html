@@ -1,0 +1,33 @@
+<div class="container">
+    <form #myForm="ngForm" (ngSubmit)="onFormSubmit(myForm)">
+        <div>
+            <label>Employee Id</label>
+            <input type="text" class="form-control" name="empId" #empId="ngModel" ngModel>
+        </div>
+        <div>
+            <label>Employee Name</label>
+            <input type="text" class="form-control" name="empName" #empName="ngModel"
+                ngModel>
+        </div>
+        <div>
+            <label>Employee Department</label>
+            <input type="text" class="form-control" name="empDept" #empDept="ngModel"
+                ngModel>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col-2">
+                <button class="btn btn-secondary" (click)="reset(myForm)">Reset</button>
+            </div>
+        </div>
+    </form>
+    <div *ngIf="isSubmitted">
+        <app-child-parent [parentChildData]="employeeModel" (childMessageToParent)="receiveMessage($event)"></app-child-parent>        
+    </div>
+    <div *ngIf="message!=''">
+       <span style="color: green;"> {{message}}</span>
+    </div>
+
+</div>

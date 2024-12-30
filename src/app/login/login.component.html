@@ -1,0 +1,27 @@
+<div class="container p-5">
+    @if(!signedIn){
+    <form #frm="ngForm">
+        <div class="row">
+            <div class="col-3 p-1">
+                <label for="userName">User Name</label>
+                <input type="text" class="form-control" [(ngModel)]="credentials.userName" name="userName" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 p-1">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" [(ngModel)]="credentials.password" name="password" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 p-1">
+                <button class="btn btn-primary" (click)="login()" [disabled]="!frm.valid">Login</button>
+            </div>
+        </div>
+    </form>
+    }
+    @else{
+    <div>user is already signed In. click the below button to sign out</div>
+    <div><button class="btn btn-secondary" (click)="signout()">Sign Out</button></div>
+    }
+</div>

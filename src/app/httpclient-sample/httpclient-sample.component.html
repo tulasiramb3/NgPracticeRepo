@@ -1,0 +1,24 @@
+<div class="container">
+   <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Company</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(user of userList; let idx= $index; track idx){
+            <tr>        
+                <td>{{idx+1}}</td>        
+                <td>{{user.userName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.address | json}}</td>
+                <td>{{user.company | json}}</td>
+            </tr>
+           }
+        </tbody>
+   </table>
+</div>

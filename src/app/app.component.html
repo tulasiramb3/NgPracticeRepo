@@ -1,0 +1,56 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="">Logo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'\simpledatabinding'" [routerLinkActive]="'active'">Home <span class="sr-only">(Learn1)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'\buttontest'" routerLinkActive="active">Learn2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'\directivesample'" routerLinkActive="active">Learn3</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'templatedrivenform'" [routerLinkActive]="'active'">Learn4</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink] = "'\parentchild'"  [routerLinkActive]="'active'">Learn5</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink] = "'\httpclientsample'"  [routerLinkActive]="'active'">Learn6</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink] = "'\pipesconcepts'"  [routerLinkActive]="'active'">Learn7</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink] = "'reactiveform'"  [routerLinkActive]="'active'">Learn8</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink] = "'\arraysploperators'"  [routerLinkActive]="'active'">Learn9</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink] = "'\login'"  [routerLinkActive]="'active'">Learn10</a>
+      </li>
+    </ul>
+    <form class="d-flex ms-auto" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<router-outlet />
+<!-- 
+
+
+<app-data-binding></app-data-binding>
+<app-buttontest></app-buttontest>
+<app-directive-sample></app-directive-sample>
+<app-basic-form-handling></app-basic-form-handling>
+<app-parent-child></app-parent-child>
+<app-httpclient-sample></app-httpclient-sample> -->

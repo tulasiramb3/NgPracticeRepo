@@ -1,0 +1,63 @@
+<div class="container">
+    <form [formGroup]="jobFormGroup">
+        <div>
+            <div class="row p-1 m-3">
+                <div class="col">
+                    <label for="userName">Job Name</label>
+                    <!-- <input type="text" class="form-control" [formControl]="name"> -->
+                    <input type="text" class="form-control" formControlName="name">
+                    <div *ngIf="jobFormGroup.get('name')?.touched || formSubmitted">
+                        @if(jobFormGroup.get('name')?.invalid){
+                        <div *ngIf="jobFormGroup.get('name')?.errors?.['required']" class="text-danger">
+                            Job Name is required</div>
+                        <div *ngIf="jobFormGroup.get('name')?.errors?.['minlength']"
+                            class="text-danger">Min Length should be 3</div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row p-1 m-3">
+                <div class="col">
+                    <label for="userName">Job Description</label>
+                    <textarea class="form-control" formControlName="description"></textarea>
+                    <div *ngIf="jobFormGroup.get('description')?.touched || formSubmitted">
+                        <div *ngIf="jobFormGroup.get('description')?.invalid">
+                            <div *ngIf="jobFormGroup.get('description')?.errors?.['required']" class="text-danger">Job
+                                Description is required</div>
+                            @if(jobFormGroup.get('description')?.errors?.['minlength']){
+                            <div class="text-danger">Min Length should be 3</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-1 m-3">
+                <div class="col">
+                    <label for="userName">Job Type</label>
+                    <select class="form-select" formControlName="jobType">
+                        <option value="" disabled>--Select--</option>
+                        <option value='1'>Technology</option>
+                        <option value='2'>Infrastructure</option>
+                        <option value='3'>Finance</option>
+                        <option value='4'>Administration</option>
+                    </select>
+                </div>
+                <div *ngIf="jobFormGroup.get('jobType')?.touched || formSubmitted">
+                    <div *ngIf="jobFormGroup.get('jobType')?.invalid">
+                        @if(jobFormGroup.get('jobType')?.errors?.['required']){
+                        <div class="text-danger">Job Type Selection required</div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row p-1 m-3">
+                <div class="col-1">
+                    <button class="btn btn-primary" (click)="submit()">Submit</button>
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-primary" [disabled]=!jobFormGroup.valid (click)="reset()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
