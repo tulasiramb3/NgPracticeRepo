@@ -1,0 +1,54 @@
+<p>Shopping!</p>
+<div class="container my-5" *ngIf="cartItems.length>0">
+    <h1 class="text-center mb-4">Shopping Cart</h1>
+    <div class="row"  style="row-gap: 10px;">
+      <!-- Cart Items -->
+      <div class="col-lg-8">
+        <div class="card mb-1" *ngFor="let cart of cartItems">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-3">
+                <img [src]="cart.product.image" class="img-fluid rounded" alt="Product 1" width="50%" height="50%">
+              </div>
+              <div class="col-4">
+                <h5 class="mb-1">{{cart.product.title}}</h5>              
+              </div>
+              <div class="col-2">
+                <input #quantityInput type="number" class="form-control text-center" [value]="cart.quantity" (change)="quantityChange(cart,quantityInput.value)" min="1">
+              </div>
+              <div class="col-2 text-end">
+                <span class="text-success">{{cart.product.price * cart.quantity}}</span>
+              </div>
+              <div class="col-1 text-end">
+                <button class="btn btn-danger btn-sm" (click)="removeProduct(cart.product.id)"><i class="fas fa-minus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Summary -->
+      <div class="col-lg-4" >
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Order Summary</h5>
+            <hr>
+            <div class="d-flex justify-content-between">
+              <p>Subtotal</p>
+              <p>{{totalPrice | number:'1.2'}}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p>Shipping</p>
+              <p>$5.00</p>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between fw-bold">
+              <p>Total</p>
+              <p>${{totalPrice + 5 | number:'1.2'}}</p>
+            </div>
+            <button class="btn btn-primary w-100 mt-3">Proceed to Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

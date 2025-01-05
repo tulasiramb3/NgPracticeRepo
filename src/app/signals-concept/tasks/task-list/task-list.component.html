@@ -1,0 +1,29 @@
+<div class="container p-4">
+    @if(taskList.length>0)
+    {
+    @for(task of taskList; track task.id){
+    <div class="row" style="color:blue">
+        <div class="col-2 p-3">Task {{task.id}}</div>
+        <div class="col-2 p-3">{{task.description}}</div>
+        <div class="col-2 p-3"><button class="btn btn-secondary" (click)="removeTask(task.id)">Remove</button></div>
+    </div>
+
+    }
+    }
+    @else{
+    <div style="color:red">No items to display</div>
+    }
+    <div class="row">
+        <div class="col-2 p-3">
+            <input placeholder="Task description" [(ngModel)]="taskDescription" class="form-control">
+        </div>
+        <div class="col-2 p-3">
+            <button class="btn btn-primary" (click)="addTask()">Add Task</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <app-tasks-count></app-tasks-count>
+</div>

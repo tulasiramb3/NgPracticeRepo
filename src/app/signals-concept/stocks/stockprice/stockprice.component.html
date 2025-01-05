@@ -1,0 +1,12 @@
+<div class="container" *ngIf="getStocks().length>0">
+    <div>
+        <ul>
+            <li *ngFor="let stock of getStocks()">
+                <div>{{stock.companyName}} - {{stock.stockPrice}}</div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<app-price-updater></app-price-updater>

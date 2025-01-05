@@ -10,6 +10,11 @@ import { ReactiveformhandlingComponent } from './reactiveformhandling/reactivefo
 import { ArrayspecialoperatorsComponent } from './arrayspecialoperators/arrayspecialoperators.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './login/profile/profile.component';
+import { TaskListComponent } from './signals-concept/tasks/task-list/task-list.component';
+import { StockpriceComponent } from './signals-concept/stocks/stockprice/stockprice.component';
+import { ShoppingCartComponent } from './signals-concept/shopping-cart/shopping-cart.component';
+import { ProductListComponent } from './signals-concept/shopping-cart/product-list/product-list.component';
+import { CartComponent } from './signals-concept/shopping-cart/cart/cart.component';
 
 export const routes: Routes = [
     {path:'' , component:DataBindingComponent},
@@ -22,7 +27,10 @@ export const routes: Routes = [
     {path:'pipesconcepts' , component:PipesconceptsComponent},
     {path:'reactiveform' , component:ReactiveformhandlingComponent},
     {path:'arraysploperators',component : ArrayspecialoperatorsComponent},
-    {path:'login',component : LoginComponent},
-    {path:'profile',component : ProfileComponent}
-
+    {path:'behaviorsubjectconcept',component : LoginComponent},
+    {path:'profile',component : ProfileComponent},
+    {path:'signalsconcepttasks',component : TaskListComponent},
+    {path:'signalsconceptstocks',component : StockpriceComponent},
+    {path:'signalsconcept-shopping-cart',component : ShoppingCartComponent},
+    {path:'cart',component : CartComponent}
 ];
