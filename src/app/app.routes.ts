@@ -15,6 +15,7 @@ import { StockpriceComponent } from './signals-concept/stocks/stockprice/stockpr
 import { ShoppingCartComponent } from './signals-concept/shopping-cart/shopping-cart.component';
 import { ProductListComponent } from './signals-concept/shopping-cart/product-list/product-list.component';
 import { CartComponent } from './signals-concept/shopping-cart/cart/cart.component';
+import { ChatBotAppComponent } from './signals-concept/chat-bot-app/chat-bot-app.component';
 
 export const routes: Routes = [
     {path:'' , component:DataBindingComponent},
@@ -32,5 +33,6 @@ export const routes: Routes = [
     {path:'signalsconcepttasks',component : TaskListComponent},
     {path:'signalsconceptstocks',component : StockpriceComponent},
     {path:'signalsconcept-shopping-cart',component : ShoppingCartComponent},
-    {path:'cart',component : CartComponent}
+    {path:'cart',component : CartComponent},
+    {path:'chat',component : ChatBotAppComponent }
 ];

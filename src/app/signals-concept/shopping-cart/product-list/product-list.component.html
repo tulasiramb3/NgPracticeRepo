@@ -6,7 +6,7 @@
 
 <div class="container my-5">
     <h1 class="text-center mb-4">Product List</h1>
-    <div *ngIf="products.length>0" style="display: flex; justify-content: end;" class="p-2">
+    <div *ngIf="this.cartService.cartItems().length>0" style="display: flex; justify-content: end;" class="p-2">
         <a [routerLink]="'../cart'" class="btn btn-success">Go to Shopping Cart</a>
     </div> 
     <div class="row row-cols-1 row-cols-md-3 g-4"  *ngIf="products.length>0">
